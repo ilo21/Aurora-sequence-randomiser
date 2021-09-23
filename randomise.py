@@ -17,14 +17,14 @@ forces = [20, 60, 100, 260, 600, 1000, 1800, 3000]
 allForcePermutations = list(itertools.permutations(forces))
 randomForcePermutations = random.sample(allForcePermutations, len(allForcePermutations))
 
-for f,seq in enumerate(randomForcePermutations): # f is index starting from 0, seq is 
+for f,seq in enumerate(randomForcePermutations): # f is index starting from 0, seq is a sequence
     forceFile = open(outputFolder + forceFileName .format(f+1), 'w')
     forceFile.write(headers)
     for n,value in enumerate(randomForcePermutations[f]):
         forceFile.write(forceLineText .format(value,n+1))
     forceFile.close()
 
-
+# For the length protocol randomization
 # velocities = [1, 3, 10, 30, 100, 300]
 
 # allVelocityPermutations = list(itertools.permutations(velocities))
