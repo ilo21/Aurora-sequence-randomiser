@@ -1,6 +1,6 @@
 import os, itertools, random
 
-outputFolder = './SequenceFilesTest/'
+outputFolder = './SequenceFilesShort/'
 if not os.path.exists(outputFolder):
     os.makedirs(outputFolder)
 
@@ -11,12 +11,12 @@ headers = 'DMCv5 Sequence File \nBase File:  \nProtocol File\tTimed?\tTimeToWait
 forceLineText = 'C:\\Users\\oumth89\\Desktop\\Protocols\\Oumie ex force{}.dpf\tTimed\t10.000\t{}\t0\t\n' 
 # velocityLineText = 'C:\\Users\\oumth89\\Desktop\\Protocols\\Oumie ex2 length{}.dpf\tTimed\t10.000\t{}\t0\t\n'
 
-forces = [20, 60, 100, 260, 600, 1000, 1800, 3000]
-# forces = [20, 60, 100, 260,1000]
+# forces = [20, 60, 100, 260, 600, 1000, 1800, 3000]
+forces = [20, 60, 100, 260,1000]
 
 allForcePermutations = list(itertools.permutations(forces))
 randomForcePermutations = random.sample(allForcePermutations, len(allForcePermutations))
-
+print(randomForcePermutations[0])
 for f,seq in enumerate(randomForcePermutations): # f is index starting from 0, seq is 
     forceFile = open(outputFolder + forceFileName .format(f+1), 'w')
     forceFile.write(headers)
